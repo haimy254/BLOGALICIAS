@@ -24,19 +24,19 @@ class User(UserMixin,db.Model):
     downvote = db.relationship('Downvote', backref = 'users', lazy = 'dynamic')
   
  
-#     @property
-#     def password(self):
-#       raise AttributeError('this is restriced')
+    @property
+    def password(self):
+      raise AttributeError('this is restriced')
   
-#     @password.setter
-#     def password(self,password):
-#         self.pass_s = generate_password_hash(password)
+    @password.setter
+    def password(self,password):
+        self.pass_s = generate_password_hash(password)
         
-#     def verify_hash(self,password):
-#         return check_password_hash(self.pass_s, password)
+    def verify_hash(self,password):
+        return check_password_hash(self.pass_s, password)
     
-#     def __repr__(self):
-#         return f'User{self.username}'
+    def __repr__(self):
+        return f'User{self.username}'
     
 # class Blog(db.Model):
 #     __tablename__ = 'blogs'
