@@ -1,8 +1,8 @@
 from flask import render_template,url_for,redirect,flash, request
 from flask_login import login_user, logout_user, login_required,current_user
 from . import auth
-from ..models import  User
-from .form import PitchForm, RegistrationForm, LoginForm
+from ..models import  User,Comment
+from .form import  RegistrationForm, LoginForm, CommentForm
 from .. import db
 
 
@@ -37,3 +37,8 @@ def signUp():
         db.session.commit()
         return redirect(url_for('auth.login'))
     return render_template('auth/sign.html',form=form) 
+
+
+
+
+
