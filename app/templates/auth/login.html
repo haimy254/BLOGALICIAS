@@ -1,0 +1,11 @@
+{% extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %}{%block
+content%}
+<div class="col-md-6 col-lg-7 d-flex align-items-center">
+  <div class="card-body p-4 p-lg-5 text-dark">
+    <div class="col-md-6 mb-4">
+      <h2>LOGIN</h2>
+      {{ wtf.quick_form(login_form) }}
+    </div>
+  </div>
+</div>
+{% endblock%}
