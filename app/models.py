@@ -44,21 +44,21 @@ class Blog(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     blog = db.Column(db.String(300),index = True)
     posted = db.Column(db.DateTime, default=datetime.utcnow)
-    username = db.Column(db.Integer,db.ForeignKey("users.id"), nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"), nullable = False)
     comments = db.relationship('Comment',backref='blogs',lazy='dynamic') 
     upvotes = db.relationship('Upvote', backref = 'blogs', lazy = 'dynamic')
     downvotes = db.relationship('Downvote', backref = 'blogs', lazy = 'dynamic')
     
     def __repr__(self):
-       return f'Pitch{self.description}'
+       return f'Blog{self.description}'
    
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(200))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    username = db.Column(db.Integer, db.ForeignKey('users.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
 
     def __repr__(self):
         return f'<Comment: {self.comment}>'
