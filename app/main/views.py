@@ -9,7 +9,8 @@ from ..models import Comment,Blog
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    blogs=Blog.query.all()
+    return render_template('index.html', blogs=blogs)
 
 @main.route('/blog', methods=["GET","POST"])
 def blog():
@@ -18,8 +19,8 @@ def blog():
         blog=form.blog.data
         blog=Blog(blog=blog,user_id=current_user.id)
         db.session.add(blog)
-        db.sesseion.commit()
-        return redirect(url_for('main.blog'))
+        db.session.commit()
+        return redirect(url_for('main.index'))
     return render_template('blog.html', form=form)
 
 @main.route('/comment', methods= ["GET","POST"])

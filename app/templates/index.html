@@ -1,13 +1,25 @@
 {% extends 'base.html'%} {%block content%}
 <div class="bg">
-    <p>good </p>
-     <section class="smb-hero-section">
-      <div class="smb-hero-text">
-        <div>
-          <h3>Got an <span>Emergency?</span></h3>
-          <p>Keep calm, Help is one click away</p>
+  <section class="smb-hero-section">
+    <div class="smb-hero-text">
+      <div>
+        <h3>BLOG <span> ALL DAY EVERYDAY</span></h3>
+        <p>
+          Welcome to your personal favourite blog where you are free to say
+          anything and everything.<br />
+          Anything you need we have it right here
+        </p>
+        <div class="container">
+        {%for blog in blogs%}
+        <!-- <p>blog:    {{blog.blog}}</p> -->
+        <span
+          >blog:</span>
+          <p>{{blog.blog}}</p>
+        
+        {%endfor%}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </div>
 {%endblock%}

@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Poppins", sans-serif;
   
 }
 
@@ -25,8 +26,8 @@
 }
 
 .smb-hero-text {
-  width: 40%;
-  height: 30%;
+  width: 70%;
+  height: 70%;
   background: #051eaa77;
   border-radius: 10px;
   display: flex;
@@ -34,7 +35,8 @@
 }
 
 .smb-hero-text h3 {
-  font-weight: 700;
+  font-weight: 800;
+  margin-left: 7rem;
 }
 
 .smb-hero-text span {
