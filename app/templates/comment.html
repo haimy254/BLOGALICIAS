@@ -1,3 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- hero section -->
+{% block content %}
+
+<!-- comment intput box -->
+<form action="" method="post">
+  {{ form.csrf_token }}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <input type="text" id="comment" placeholder="Add comment...." />
+      </div>
+      <div class="col-sm">
+        <button type="submit   bg-primary " >submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
 
 
 
