@@ -2,7 +2,7 @@
 
 from flask import redirect, render_template,url_for
 from flask_login import current_user
-from app.auth.form import  BlogForm, CommentForm
+from app.main.form import  BlogForm, CommentForm
 from app.main import main
 from app import db
 from ..models import Comment

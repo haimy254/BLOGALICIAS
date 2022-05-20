@@ -24,11 +24,3 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')     
     
-class CommentForm(FlaskForm):
-    comment = StringField('enter comment')
-    submit = SubmitField('blog comments')
-    
-    
-class BlogForm(FlaskForm):
-    blog =  StringField('')
-    submit = SubmitField('submit')
