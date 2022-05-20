@@ -9,8 +9,8 @@ from ..models import Comment,Blog
 
 @main.route('/')
 def index():
-    blogs=Blog.query.all()
-    return render_template('index.html', blogs=blogs)
+    blogs=Blog.query.all
+    return render_template('index.html',blogs=blogs)
 
 @main.route('/blog', methods=["GET","POST"])
 def blog():

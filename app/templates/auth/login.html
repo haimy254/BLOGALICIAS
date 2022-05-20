@@ -1,10 +1,15 @@
 {% extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %}{%block
 content%}
-<div class="col-md-6 col-lg-7 d-flex align-items-center">
-  <div class="card-body p-4 p-lg-5 text-dark">
-    <div class="col-md-6 mb-4">
-      <h2>LOGIN</h2>
-     <div>{{ wtf.quick_form(login_form) }}</div> 
+<div class="back-log">
+  <div class="card-body py-5 px-md-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-8">
+        <h2>LOGIN</h2>
+        <div>{{ wtf.quick_form(login_form) }}
+            <p>Do you have an account?  <a class="nav-item nav-link text-success" href="{{url_for("auth.signUp")}}">Register</a></p>
+        </div>
+      </div>
+    
     </div>
   </div>
 </div>
