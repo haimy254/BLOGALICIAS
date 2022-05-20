@@ -1,15 +1,17 @@
 {% extends 'base.html'%} {%block content%}
-<section class="container">
-  <form action="" method="post">
-    {{ form.csrf_token }}
-
-    <div class="form-group">
-      {{ form.blog.label(class='form-label') }} {{
-      form.blog(class='form-control') }}
-    </div>
-    <div class="col-sm">
-      <p>{{ form.submit() }}</p>
-    </div>
-  </form>
-</section>
+<div class="back_add">
+  <section class="container">
+    <form action="" method="post">
+      {{ form.csrf_token }}
+      <h3>Add a blog</h3>
+      <div class="form-group">
+        {{ form.blog.label(class='form-label') }} {{
+        form.blog(class='form-control') }}
+      </div>
+      <div class="col-sm">
+        <p>{{ form.submit() }}</p>
+      </div>
+    </form>
+  </section>
+</div>
 {%endblock%}
