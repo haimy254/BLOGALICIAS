@@ -2,27 +2,21 @@
 
 <!-- hero section -->
 {% block content %}
-
-<!-- comment intput box -->
-<form action="" method="post">
-  {{ form.csrf_token }}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <input type="text" id="comment" placeholder="Add comment...." />
-      </div>
-      <div class="col-sm">
-        <button type="submit   bg-primary " >submit</button>
+<div class="back-comm">
+  <!-- comment intput box -->
+  <form action="" method="post">
+    {{ form.csrf_token }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <input type="text" id="comment" placeholder="Add comment...." />
+        </div>
+        <div class="col-sm">
+          <button type="submit bg-primary ">submit</button>
+           <a class="nav-item nav-link " href="{{url_for("main.index")}}">BACK </a>
+        </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
 {% endblock %}
-
-
-
-
-
-
-
-

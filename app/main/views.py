@@ -18,11 +18,11 @@ def index():
 def blog():
     form=BlogForm()
     if form.validate_on_submit():
-        blog=Blog(blog=form.blog.data,user_id=current_user.id)
+        blog=Blog(blog=form.blog.data,user_id=current_user.id,comment=comment)
         db.session.add(blog)
         db.session.commit()
-        return redirect(url_for('main.blog'))
-    return render_template('index.html', form=form)
+        return redirect(url_for('main.index'))
+    return render_template('blog.html', form=form)
 
 @main.route('/comment', methods= ["GET","POST"])
 def comment():

@@ -36,11 +36,13 @@
           >blog:</span>
           <p>{{blog.blog}}</p>
         <p>{{blog.user_id}}</p>
-        <p>{{blog.comments}}</p>
-        <p>Add a comment:<link></p>
+        <p>{{blog.comment}}</p>
+   <a class="nav-item nav-link text-black-10 " href="{{url_for("main.comment")}}">ADD COMMENT</a>
         {%endfor%}
         </div>
-        
+        <div >
+            <a class="nav-item nav-link " href="{{url_for("main.blog")}}">ADD blog</a>
+        </div>
       </div>
     </div>
   </section>
