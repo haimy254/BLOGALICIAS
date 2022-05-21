@@ -10,7 +10,9 @@ from ..models import Comment,Blog
 @main.route('/')
 def index():
     blogs=Blog.query.all()
-    return render_template('index.html',blogs=blogs)
+    comments = Comment.query_all()
+    form = CommentForm()
+    return render_template('index.html',blogs=blogs,comments=comments,form=form)
 
 @main.route('/blog', methods=["GET","POST"])
 def blog():
@@ -23,13 +25,15 @@ def blog():
     return render_template('index.html', form=form)
 
 @main.route('/comment', methods= ["GET","POST"])
-def comment():
+def comment(blog_id):
     form = CommentForm()
     if form.validate_on_submit():
-        comment = Comment(comment = form.comment.data)
+        comment = Comment(comment = form.comment.data, blog_id=current_user, blog_id=blog_id)
         db.session.add(comment)
         db.session.commit()
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.index', blog_id=blog_id))
     return render_template('comment.html', form = form)
+
+
 
 
