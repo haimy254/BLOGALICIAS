@@ -20,6 +20,11 @@
 
 
 <div class="bg">
+     {% if current_user.is_authenticated %}
+  <h3 class="text-dark"><i>Welcome {{current_user.username}}</i></h3>
+  {% else %}
+  <h3>Welcome home</h3>
+  {% endif %}
   <section class="smb-hero-section">
     <div class="smb-hero-text">
       <div>
@@ -40,6 +45,7 @@
    <a class="nav-item nav-link text-black-10 " href="{{url_for("main.comment")}}">ADD COMMENT</a>
         {%endfor%}
         </div>
+        
         <div >
             <a class="nav-item nav-link " href="{{url_for("main.blog")}}">ADD blog</a>
         </div>

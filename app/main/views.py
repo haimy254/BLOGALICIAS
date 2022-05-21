@@ -1,6 +1,6 @@
 
 
-from flask import redirect, render_template,url_for
+from flask import redirect, render_template,url_for,abort
 from flask_login import current_user
 from app.main.form import  BlogForm, CommentForm
 from app.main import main
@@ -33,6 +33,17 @@ def comment():
         db.session.commit()
         return redirect(url_for('main.index'))
     return render_template('comment.html', form = form)
+
+@main.route('/blog', methods= ["POST"])
+def delete_blog():
+    blog = Blog.query.get_or_404()
+    if blog.user_id !=current_user:
+        abort(403)
+    db.session.add(blog)
+    db.session.commit()
+    return redirect(url_for('main.index'))
+
+
 
 
 
