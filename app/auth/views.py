@@ -16,7 +16,7 @@ def login():
             flash('Invalid username or Password')
         login_user(user,login_form.remember.data)
         next_page = request.args.get('next')
-        return redirect(next_page) if next_page else redirect(url_for('main.blog'))
+        return redirect(next_page) if next_page else redirect(url_for('main.index'))
     title = "blog login"
        
     return render_template('auth/login.html', login_form=login_form ,title=title)
