@@ -19,7 +19,6 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(600))
     posted = db.Column(db.DateTime, default=datetime.utcnow)
     blogs = db.relationship('Blog', backref='users', lazy='dynamic')
-    comments = db.relationship('Comment', backref='users', lazy='dynamic')
     upvote = db.relationship('Upvote', backref = 'users', lazy = 'dynamic')
     downvote = db.relationship('Downvote', backref = 'users', lazy = 'dynamic')
   
@@ -57,7 +56,6 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(200))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
 
     def __repr__(self):

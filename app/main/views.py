@@ -18,7 +18,7 @@ def index():
 def blog():
     form=BlogForm()
     if form.validate_on_submit():
-        blog=Blog(blog=form.blog.data,user_id=current_user.id,comment=comment)
+        blog=Blog(blog=form.blog.data,user_id=current_user.id)
         db.session.add(blog)
         db.session.commit()
         return redirect(url_for('main.index'))
@@ -39,7 +39,7 @@ def delete_blog():
     blog = Blog.query.get_or_404()
     if blog.user_id !=current_user:
         abort(403)
-    db.session.add(blog)
+    db.session.delete(blog)
     db.session.commit()
     return redirect(url_for('main.index'))
 

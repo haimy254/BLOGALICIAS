@@ -43,9 +43,12 @@
         <p>{{blog.user_id}}</p>
         <p>{{blog.comment}}</p>
    <a class="nav-item nav-link text-black-10 " href="{{url_for("main.comment")}}">ADD COMMENT</a>
+    <div class="">
+             <a class="nav-item nav-link " href="{{url_for("main.index")}}">Delete blog</a>
+        </div>
         {%endfor%}
         </div>
-        
+       
         <div >
             <a class="nav-item nav-link " href="{{url_for("main.blog")}}">ADD blog</a>
         </div>
